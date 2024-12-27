@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    New post
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="left-2">New Post</h1>
+    <form action="{% url 'posts:new_post'%}" method="POST" enctype = "multipart/form_data">
+        {% csrf_token %}
+        {{form}}
+
+        <button>Add Post</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {{post.title}}
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="left-2">{{post.title}}</h1>
+    <h2>{{post.body}}</h2>
+    <p>{{ post.date }} by {{ post.author }}</p>
+
+    
+
+    <section>
+        <img class="rounded-3xl size-72" src="{{post.image.url}}" alt="{{post.title}}">
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout.html'%}
+{% comment %}
+{% block title %}
+    Posts List
+{% endblock %}
+
+{% block main %}
+
+    {% for post in posts %}
+    <a href="{% url 'posts:page' slug=post.slug%}"><h1>{{post.title}} by {{post.author}}</h1></a>
+    
+    
+    {% endfor %}
+
+    <br>
+    <br>
+
+    {% if user.is_authenticated%}
+        <a href="{%url 'posts:new_post'%}"> ADD NEW POST</a>
+    {% endif %}
+{% endblock %} {% endcomment %}
+
+
+
+{%block title%}
+  POSTS
+{%endblock%}
+
+{%block main%}
+  <section>
+    <h1>
+      Post List
+    </h1>
+    {% for post in posts%}
+      <article>
+        <h2>
+          <a href="{% url 'posts:page' slug=post.slug%}">{{ post.title }}</a></h2>
+          <a href=""></a>
+       
+      </article>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+
+    {% if user.is_authenticated%}
+    <a href="{%url 'posts:new_post'%}"> ADD NEW POST</a>
+    {% endif %}
+  </section>
+{%endblock%}
